@@ -1,42 +1,24 @@
 function showhideTab(executionContext) {
-    formContext = executionContext.getFormContext();
+  formContext = executionContext.getFormContext();
 
-    let fieldvalue = "";
-    let tabs ={"tabname": ""};
+  let fieldvalue = "";
+  let tabs = { tabname: "" };
 
+  switch (fieldvalue) {
+    case "1":
+      tabs = { tabname: "t6", visible: false };
+      break;
+    case "2":
+      tabs = { tabname: "t1", visible: false };
 
-    switch(fieldvalue){
-        case "1":
-            tabs ={"tabname": "t6", "visible":false};
-            break;
-        case "2":
-            tabs ={"tabname": "t1", "visible":false};
+      tabs.forEach((element) => {
+        tabVisibility(element);
+      });
+      break;
+  }
 
-            tabs.forEach(element => {tabVisibility(element,)
-                
-            });
-            break;
-
-
-
-
-
-    }
-
-
-    
-    
-
-
-
-    function tabVisibility(tName,boolVisible){
-        let tabObj = formContext.ui.tabs.get(tName);
-        tabObj.setVisible(boolVisible);
-
-    }
-
-
-}
-
-
-   
+  function tabVisibility(tName, boolVisible) {
+    let tabObj = formContext.ui.tabs.get(tName);
+    tabObj.setVisible(boolVisible);
+  }
+};
