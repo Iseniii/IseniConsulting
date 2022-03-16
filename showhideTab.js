@@ -7,7 +7,7 @@ function showhideTab(executionContext) {
 
     switch(fieldvalue){
         case "1":
-            tabs ={"tabname": "t3", "visible":false};
+            tabs ={"tabname": "t6", "visible":false};
             break;
         case "2":
             tabs ={"tabname": "t1", "visible":false};
