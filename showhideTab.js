@@ -38,6 +38,6 @@ function showhideTabSections(executionContext) {
 
   //Function that shows/hides sections
   function sectionVisibility(tab, sec, boolVisible) {
-    formContext.ui.tabs.get(tab).sections.get(sec);
+    formContext.ui.tabs.get(tab).sections.get(sec).setVisible(boolVisible);
   }
 }
