@@ -23,6 +23,6 @@ function showhideTab(executionContext) {
   }
 
   function tabVisibility(tab, boolVisible) {
-    formContext.ui.tabs.get(tabName).setVisible(boolVisible);
+    formContext.ui.tabs.get(tab).setVisible(boolVisible);
   }
 }
