@@ -1,24 +1,28 @@
 function showhideTab(executionContext) {
-  formContext = executionContext.getFormContext();
+  var formContext = executionContext.getFormContext(); // get formContext
+  var fieldbranch = "nxt_type";
 
-  let fieldvalue = "";
-  let tabs = { tabname: "" };
+  // use formContext instead of Xrm.Page
+  var branch = formContext.getAttribute(fieldbranch).getText();
 
-  switch (fieldvalue) {
-    case "1":
-      tabs = { tabname: "t6", visible: false };
+  var tab1 = "timeline";
+  var tab2 = "agreement";
+
+  switch (branch) {
+    case "Anlæg":
+      tabVisibility(tab1, true);
+      tabVisibility(tab2, false);
       break;
-    case "2":
-      tabs = { tabname: "t1", visible: false };
-
-      tabs.forEach((element) => {
-        tabVisibility(element);
-      });
+    case "Byudstyr":
+      tabVisibility(tab1, true);
+      tabVisibility(tab2, false);
       break;
+    default:
+      tabVisibility(tab1, true);
+      tabVisibility(tab2, true);
   }
 
-  function tabVisibility(tName, boolVisible) {
-    let tabObj = formContext.ui.tabs.get(tName);
-    tabObj.setVisible(boolVisible);
+  function tabVisibility(tab, boolVisible) {
+    formContext.ui.tabs.get(tabName).setVisible(boolVisible);
   }
-};
+}
